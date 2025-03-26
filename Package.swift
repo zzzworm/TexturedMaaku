@@ -14,8 +14,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        // 在此添加依赖项
-        .package(url: "https://github.com/zzzworm/Maaku.git", branch: "master")
+        .package(url: "https://github.com/zzzworm/Maaku.git")
     ],
     targets: [
         .target(
