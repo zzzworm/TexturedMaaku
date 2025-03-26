@@ -20,7 +20,7 @@ let package = Package(
     targets: [
         .target(
             name: "TexturedMaaku",
-            dependencies: ["Maaku","AsyncDisplayKit"]
+            dependencies: ["Maaku","Texture"]
         ),
         .testTarget(
             name: "TexturedMaakuTests",
