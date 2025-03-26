@@ -14,12 +14,15 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/zzzworm/Maaku.git", from: "0.9.6")
+        .package(url: "https://github.com/zzzworm/Maaku.git", from: "0.9.6"),
+        .package(url: "https://github.com/FluidGroup/Texture.git", from: "3.0.3"),
+        .package(url: "https://github.com/raspu/Highlightr.git", from: "2.2.1"),
+        .package(url: "https://github.com/KristopherGBaker/libcmark_gfm.git", from: "0.29.3"),
     ],
     targets: [
         .target(
             name: "TexturedMaaku",
-            dependencies: []
+            dependencies: [.product(name: "AsyncDisplayKit", package: "Texture"), "Maaku","libcmark_gfm"]
         ),
         .testTarget(
             name: "TexturedMaakuTests",

@@ -7,6 +7,7 @@
 //
 
 import Maaku
+import UIKit
 
 /// TableAlignment extensions.
 extension TableAlignment {

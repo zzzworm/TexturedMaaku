@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "Highlightr",
+        "repositoryURL": "https://github.com/raspu/Highlightr.git",
+        "state": {
+          "branch": null,
+          "revision": "bcf2d0590f32ac2528feb72d7e34f5b463801a47",
+          "version": "2.2.1"
+        }
+      },
+      {
         "package": "libcmark_gfm",
         "repositoryURL": "https://github.com/KristopherGBaker/libcmark_gfm.git",
         "state": {
@@ -35,6 +44,15 @@
           "branch": null,
           "revision": "09b3becb37cb2163919a3842a4c5fa6ec7130792",
           "version": "2.2.1"
+        }
+      },
+      {
+        "package": "Texture",
+        "repositoryURL": "https://github.com/FluidGroup/Texture.git",
+        "state": {
+          "branch": null,
+          "revision": "f6aba697c93e955b822e1bed148e83eee2db70e4",
+          "version": "3.0.3"
         }
       }
     ]
