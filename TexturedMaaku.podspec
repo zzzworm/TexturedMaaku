@@ -18,13 +18,13 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   
   s.subspec 'Core' do |core|
-      core.source_files = "Sources/Core/**/*.swift"
+      core.source_files = "Sources/TexturedMaaku/Core/**/*.swift"
       core.dependency 'Maaku/Core'
       core.dependency 'Texture'
   end
 
   s.subspec 'Plugins' do |plugins|
-      plugins.source_files = "Sources/Plugins/**/*.swift"
+      plugins.source_files = "Sources/TexturedMaaku/Plugins/**/*.swift"
       plugins.dependency 'Maaku/Plugins'
       plugins.dependency 'TexturedMaaku/Core'
       plugins.dependency 'youtube-ios-player-helper'
