@@ -12,7 +12,7 @@ import SafariServices
 import UIKit
 
 /// Provides a view controller for rendering CommonMark content.
-open class DocumentViewController: ASViewController<DocumentNode>, DocumentNodeDelegate {
+open class DocumentViewController: ASDKViewController<DocumentNode>, DocumentNodeDelegate {
 
     /// The document style. Setting this will reload the document.
     public var documentStyle: DocumentStyle {

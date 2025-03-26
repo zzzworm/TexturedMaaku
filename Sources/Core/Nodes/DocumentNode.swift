@@ -38,7 +38,84 @@ public class DocumentNode: ASDisplayNode {
     }()
 
     /// The document.
-    private let document: Document
+    private var document: Document
+    public func updateDocument(doc: Document){
+        
+        let olditems = document.items
+        let items = doc.items
+        if(0 == olditems.count || 0 == items.count){
+            document = doc
+            self.reload()
+            return
+        }
+        let oldCount = document.items.count
+        var deletedIndexPaths : [IndexPath] = []
+        var indexPaths : [IndexPath] = []
+        if(oldCount < items.count){
+            
+            for i in 0 ... items.count-1 {
+                
+                if( i < olditems.count){
+                    let oldElement = olditems[i]
+                    let newElement = items[i]
+                    
+                    if(oldElement.isEqualTo(newElement)){
+                        continue
+                    }
+                    else{
+                        deletedIndexPaths.append(IndexPath(row: i, section: 0))
+                        indexPaths.append(IndexPath(row: i, section: 0))
+                        continue;
+                    }
+                }
+                else{
+                    indexPaths.append(IndexPath(row: i, section: 0))
+                }
+            }
+            
+        }
+        else{
+            for i in 0 ... oldCount-1 {
+                
+                if( i < items.count){
+                    let oldElement = olditems[i]
+                    let newElement = items[i]
+                    
+                    if(oldElement.isEqualTo(newElement)){
+                        continue
+                    }
+                    else{
+                        deletedIndexPaths.append(IndexPath(row: i, section: 0))
+                        indexPaths.append(IndexPath(row: i, section: 0))
+                        continue;
+                    }
+                }
+                else{
+                    deletedIndexPaths.append(IndexPath(row: i, section: 0))
+                }
+            }
+        }
+                    
+                    
+//                    items.removeLast(items.count-updateIndex)
+//                    items.append(contentsOf: document.items.suffix(from: updateIndex))
+                    CATransaction.begin()
+                    CATransaction.setDisableActions(true)
+                
+                    collectionNode.performBatchUpdates({
+                        self.document = doc;
+                        
+                        if(0 != deletedIndexPaths.count){
+                            collectionNode.deleteItems(at:deletedIndexPaths)
+                        }
+                    if(0 != indexPaths.count){
+                        collectionNode.insertItems(at: indexPaths)
+                    }
+                    })
+                
+                    CATransaction.commit()
+        
+    }
 
     /// The delegate.
     public weak var delegate: DocumentNodeDelegate?
